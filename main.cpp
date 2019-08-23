@@ -1,22 +1,20 @@
 #include <bits/stdc++.h>
 
 int main() {
-    int numeroDeEntradasPermitidas = 0;
-    std::cin >> numeroDeEntradasPermitidas;
+    std::map<std::string, int> paisAparicion;
+    std::string pais, linea;
+    int entradasPermitidas = 0;
 
-    std::map<std::string, int> contadorDeLasVecesEnQueApareceUnPais;
+    std::cin >> entradasPermitidas;
 
-    for (int i = 0; i < numeroDeEntradasPermitidas; ++i) {
-        std::string pais;
+    for (int i = 0; i < entradasPermitidas; ++i) {
+        std::getline(std::cin, linea);
         std::cin >> pais;
 
-        std::string primeraPalabraDeCadaLinea;
-        std::getline(std::cin, primeraPalabraDeCadaLinea);
-
-        ++contadorDeLasVecesEnQueApareceUnPais[pais];
+        ++paisAparicion[pais];
     }
 
-    for (auto && item: contadorDeLasVecesEnQueApareceUnPais) {
+    for (auto && item: paisAparicion) {
         std::cout << item.first << " " << item.second << std::endl;
     }
 
